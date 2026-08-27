@@ -104,6 +104,7 @@
   textarea{grid-row:span 2;resize:vertical;min-height:120px}
   form .btn{justify-content:center;width:100%}
   .hidden{display:none}
+  .req{grid-column:1/-1;font-size:12px;color:var(--grey);margin-top:-6px}
   .thanks{grid-column:1/-1;background:#fff;border:1px solid var(--gold);border-radius:8px;padding:24px;text-align:center}
 
   /* FOOTER */
@@ -246,13 +247,14 @@
         <input type="hidden" name="form-name" value="ride-request">
         <input type="hidden" name="subject" value="New Ride Request — ARA's Transport">
         <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="tel" name="phone" placeholder="Phone" required>
-        <input type="text" name="pickup" placeholder="Pickup Location" required>
-        <input type="text" name="destination" placeholder="Destination" required>
-        <input type="text" name="datetime" placeholder="Date / Time" required onfocus="this.type='datetime-local'">
+        <input type="text" name="name" placeholder="Name *" required>
+        <input type="tel" name="phone" placeholder="Phone *" required>
+        <input type="text" name="pickup" placeholder="Pickup Location *" required>
+        <input type="text" name="destination" placeholder="Destination *" required>
+        <input type="text" name="datetime" placeholder="Date / Time *" required onfocus="this.type='datetime-local'">
         <textarea name="notes" placeholder="Notes (optional)"></textarea>
         <button type="submit" class="btn btn-gold">Request Ride</button>
+        <p class="req">* Required</p>
       </form>
     </div>
   </div>
