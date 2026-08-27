@@ -22,6 +22,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
+  section{scroll-margin-top:78px}
   body{font-family:var(--sans);color:var(--ink);background:var(--white);line-height:1.6;font-size:15px}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
@@ -71,7 +72,7 @@
   .section-head h2{font-size:clamp(34px,4vw,44px);margin:8px 0 12px}
   .section-head p{color:var(--grey)}
   .cards{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
-  .card{background:var(--white);border-radius:12px;padding:28px 18px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.05);transition:.25s}
+  .card{background:var(--white);border-radius:12px;padding:24px 14px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.05);transition:.25s}
   .card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.09)}
   .icon{width:64px;height:64px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
   .icon svg{width:30px;height:30px;color:var(--gold)}
@@ -132,7 +133,7 @@
     .trust{gap:24px}
     .gallery{height:280px}
   }
-  @media(max-width:420px){.cards{grid-template-columns:1fr}}
+  @media(max-width:340px){.cards{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -241,7 +242,7 @@
         <a href="mailto:ARATransport@gmail.com"><svg><use href="#i-mail"/></svg>ARATransport@gmail.com</a>
         <div><svg><use href="#i-user"/></svg>Ms. Jeanette</div>
       </div>
-      <form name="ride-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="rideForm">
+      <form name="ride-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you" id="rideForm">
         <input type="hidden" name="form-name" value="ride-request">
         <input type="hidden" name="subject" value="New Ride Request — ARA's Transport">
         <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
@@ -285,7 +286,14 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-  document.querySelectorAll('#links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('links').classList.remove('open')));
+  // In-page nav: scroll without writing #hash to the URL
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(!t) return;
+    e.preventDefault();
+    t.scrollIntoView({behavior:'smooth'});
+    document.getElementById('links').classList.remove('open');
+  }));
 
   // Netlify Forms handles delivery when hosted on Netlify. Elsewhere, fall back to a pre-filled email.
   const form=document.getElementById('rideForm');

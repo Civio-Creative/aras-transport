@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Received | ARA's Transport</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--black:#111214;--gold:#b8955a;--gold-dark:#a0803f;--white:#fff}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Poppins',system-ui,sans-serif;background:var(--black);color:var(--white);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px;line-height:1.6}
+  .logo{display:flex;align-items:center;gap:12px;margin-bottom:40px;text-decoration:none;color:#fff}
+  .logo svg{width:44px;height:44px}
+  .logo span{font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;line-height:1}
+  .logo small{display:block;font-family:'Poppins',sans-serif;font-size:9px;letter-spacing:.32em;color:var(--gold);margin-top:3px}
+  .check{width:72px;height:72px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:28px}
+  .check svg{width:34px;height:34px;color:var(--gold)}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
+  h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(38px,6vw,56px);line-height:1.05;margin-bottom:18px}
+  p{max-width:420px;color:#d9d9d6;font-size:16px;margin-bottom:34px}
+  .btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:6px;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.35);transition:.2s}
+  .btn-gold{background:var(--gold);border-color:var(--gold)}
+  .btn-gold:hover{background:var(--gold-dark)}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+  .btn svg{width:18px;height:18px}
+  footer{margin-top:56px;font-size:12px;color:#8a8b8f}
+</style>
+</head>
+<body>
+  <a href="/" class="logo">
+    <svg viewBox="0 0 48 48" fill="none"><path d="M24 3 6 9v14c0 10 7.4 18.6 18 22 10.6-3.4 18-12 18-22V9z" stroke="#b8955a" stroke-width="2"/><text x="24" y="33" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="26" fill="#b8955a">A</text></svg>
+    <span>ARA'S<small>TRANSPORT</small></span>
+  </a>
+  <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></div>
+  <div class="eyebrow">Request Received</div>
+  <h1>We've Got You.</h1>
+  <p>Thank you for choosing ARA's Transport. Ms. Jeanette will confirm your ride shortly. Need it sooner? Call anytime.</p>
+  <div class="btns">
+    <a href="tel:+12409042437" class="btn btn-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>(240) 904-2437</a>
+    <a href="/" class="btn btn-outline">Back to Home</a>
+  </div>
+  <footer>© <span id="yr"></span> ARA's Transport</footer>
+  <script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+</body>
+</html>
