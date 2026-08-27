@@ -290,8 +290,7 @@
   // Netlify Forms handles delivery when hosted on Netlify. Elsewhere, fall back to a pre-filled email.
   const form=document.getElementById('rideForm');
   form.addEventListener('submit',e=>{
-    const onNetlify=location.hostname.endsWith('netlify.app')||document.body.dataset.netlify==='true';
-    if(onNetlify) return;
+    if(location.protocol!=='file:') return; // hosted: Netlify Forms handles it
     e.preventDefault();
     const f=new FormData(form);
     const body=['Name: '+f.get('name'),'Phone: '+f.get('phone'),'Pickup: '+f.get('pickup'),'Destination: '+f.get('destination'),'Date/Time: '+f.get('datetime'),'Notes: '+(f.get('notes')||'-')].join('\n');
